@@ -17,7 +17,7 @@ module "tfrun-functions" {
 
 policy "whitelist-providers" {
     source = "./whitelist-providers.sentinel"
-    enforcement_level = "advisory"
+    enforcement_level = "soft-mandatory"
 }
 
 policy "whitelist-resources" {
