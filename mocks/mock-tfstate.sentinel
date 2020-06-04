@@ -1,0 +1,255 @@
+import "strings"
+import "types"
+
+outputs = {
+	"github_repo_full_name": {
+		"sensitive": false,
+		"type":      "string",
+		"value":     "customer-demo-yulei/cba-vault-namespace-nsproject1",
+	},
+	"github_repo_url": {
+		"sensitive": false,
+		"type":      "string",
+		"value":     "https://github.com/customer-demo-yulei/cba-vault-namespace-nsproject1.git",
+	},
+	"tfe_worksapce_id": {
+		"sensitive": false,
+		"type":      "string",
+		"value":     "ws-XN8Az9sMN4eSxdYd",
+	},
+	"vault_namespace_path": {
+		"sensitive": false,
+		"type":      "string",
+		"value":     "project1",
+	},
+	"vault_token": {
+		"sensitive": false,
+		"type":      "string",
+		"value":     "s.kYyTfO55RWRI6fXFCL4hPVmM",
+	},
+}
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"github_repository": {
+				"cba-vault-namespace-nsproject1": {
+					0: {
+						"attr": {
+							"allow_merge_commit":     true,
+							"allow_rebase_merge":     true,
+							"allow_squash_merge":     true,
+							"archived":               false,
+							"auto_init":              null,
+							"default_branch":         "master",
+							"delete_branch_on_merge": false,
+							"description":            "Terraform for Vault code repository for Vault Namespace project1.",
+							"etag":                   "W/\"ee3963bd60be83771ca4840b0e5a6437\"",
+							"full_name":              "customer-demo-yulei/cba-vault-namespace-nsproject1",
+							"git_clone_url":          "git://github.com/customer-demo-yulei/cba-vault-namespace-nsproject1.git",
+							"gitignore_template":     null,
+							"has_downloads":          false,
+							"has_issues":             false,
+							"has_projects":           false,
+							"has_wiki":               false,
+							"homepage_url":           "",
+							"html_url":               "https://github.com/customer-demo-yulei/cba-vault-namespace-nsproject1",
+							"http_clone_url":         "https://github.com/customer-demo-yulei/cba-vault-namespace-nsproject1.git",
+							"id":                     "cba-vault-namespace-nsproject1",
+							"is_template":            false,
+							"license_template":       null,
+							"name":                   "cba-vault-namespace-nsproject1",
+							"node_id":                "MDEwOlJlcG9zaXRvcnkyNjc3MTc0NzQ=",
+							"private":                true,
+							"ssh_clone_url":          "git@github.com:customer-demo-yulei/cba-vault-namespace-nsproject1.git",
+							"svn_url":                "https://github.com/customer-demo-yulei/cba-vault-namespace-nsproject1",
+							"template": [
+								{
+									"owner":      "ausmartway",
+									"repository": "vault-namespace-template",
+								},
+							],
+							"topics": [],
+						},
+						"depends_on": [],
+						"id":         "cba-vault-namespace-nsproject1",
+						"tainted":    false,
+					},
+				},
+			},
+			"tfe_variable": {
+				"project1-workspace-namespace-vault-namespace": {
+					0: {
+						"attr": {
+							"category":     "env",
+							"description":  "namespace this workspace is bind to",
+							"hcl":          false,
+							"id":           "var-taUSEGuY6F6YzCzA",
+							"key":          "VAULT_NAMESPACE",
+							"sensitive":    false,
+							"value":        "project1",
+							"workspace_id": "ws-XN8Az9sMN4eSxdYd",
+						},
+						"depends_on": [
+							"github_repository.cba-vault-namespace-nsproject1",
+							"tfe_workspace.project1-workspace",
+							"vault_namespace.project1-namespace",
+						],
+						"id":      "var-taUSEGuY6F6YzCzA",
+						"tainted": false,
+					},
+				},
+				"project1-workspace-namespace-vault-token": {
+					0: {
+						"attr": {
+							"category":     "env",
+							"description":  "The admin VAULT_TOKEN for this namespace",
+							"hcl":          false,
+							"id":           "var-KGA7VP57hrJxU99B",
+							"key":          "VAULT_TOKEN",
+							"sensitive":    true,
+							"value":        "s.kYyTfO55RWRI6fXFCL4hPVmM",
+							"workspace_id": "ws-XN8Az9sMN4eSxdYd",
+						},
+						"depends_on": [
+							"tfe_workspace.project1-workspace",
+							"vault_policy.project1-namespace-admin-policy",
+							"vault_token.project1-namespace-admin-token",
+						],
+						"id":      "var-KGA7VP57hrJxU99B",
+						"tainted": false,
+					},
+				},
+			},
+			"tfe_workspace": {
+				"project1-workspace": {
+					0: {
+						"attr": {
+							"auto_apply":            false,
+							"external_id":           "ws-XN8Az9sMN4eSxdYd",
+							"file_triggers_enabled": true,
+							"id":                "ws-XN8Az9sMN4eSxdYd",
+							"name":              "project1-workspace",
+							"operations":        true,
+							"organization":      "customer-demo-yulei-consumer-org",
+							"queue_all_runs":    true,
+							"ssh_key_id":        "",
+							"terraform_version": "0.12.26",
+							"trigger_prefixes":  [],
+							"vcs_repo": [
+								{
+									"branch":             "",
+									"identifier":         "customer-demo-yulei/cba-vault-namespace-nsproject1",
+									"ingress_submodules": false,
+									"oauth_token_id":     "ot-Xsx6ReJAouFcMzYN",
+								},
+							],
+							"working_directory": "",
+						},
+						"depends_on": [
+							"github_repository.cba-vault-namespace-nsproject1",
+						],
+						"id":      "ws-XN8Az9sMN4eSxdYd",
+						"tainted": false,
+					},
+				},
+			},
+			"vault_namespace": {
+				"project1-namespace": {
+					0: {
+						"attr": {
+							"id":           "project1/",
+							"namespace_id": "WScel",
+							"path":         "project1",
+						},
+						"depends_on": [],
+						"id":         "project1/",
+						"tainted":    false,
+					},
+				},
+			},
+			"vault_policy": {
+				"project1-namespace-admin-policy": {
+					0: {
+						"attr": {
+							"id":     "project1-namespace-admin-policy",
+							"name":   "project1-namespace-admin-policy",
+							"policy": "# Manage namespaces\npath \"project1/sys/namespaces/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage policies\npath \"project1/sys/policies/acl/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# List policies\npath \"project1/sys/policies/acl\" {\n   capabilities = [\"list\"]\n}\n\n# Enable and manage secrets engines\npath \"project1/sys/mounts/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# List available secrets engines\npath \"project1/sys/mounts\" {\n  capabilities = [ \"read\" ]\n}\n\n# Create and manage entities and groups\npath \"project1/identity/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# Manage tokens\npath \"project1/auth/token/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage secrets at '*'\npath \"project1/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+						},
+						"depends_on": [
+							"vault_namespace.project1-namespace",
+						],
+						"id":      "project1-namespace-admin-policy",
+						"tainted": false,
+					},
+				},
+			},
+			"vault_token": {
+				"project1-namespace-admin-token": {
+					0: {
+						"attr": {
+							"client_token":           "s.kYyTfO55RWRI6fXFCL4hPVmM",
+							"display_name":           "token",
+							"encrypted_client_token": "",
+							"explicit_max_ttl":       null,
+							"id":                     "qZyWJmiqvJC3il9kBgNT9Lex",
+							"lease_duration":         345599,
+							"lease_started":          "2020-06-02T01:25:36Z",
+							"no_default_policy":      null,
+							"no_parent":              true,
+							"num_uses":               0,
+							"period":                 null,
+							"pgp_key":                "",
+							"policies": [
+								"project1-namespace-admin-policy",
+							],
+							"renew_increment":   86400,
+							"renew_min_lease":   43200,
+							"renewable":         true,
+							"role_name":         null,
+							"ttl":               "96h",
+							"wrapped_token":     null,
+							"wrapping_accessor": null,
+							"wrapping_ttl":      null,
+						},
+						"depends_on": [
+							"vault_policy.project1-namespace-admin-policy",
+						],
+						"id":      "qZyWJmiqvJC3il9kBgNT9Lex",
+						"tainted": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "0.12.25"
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

@@ -1,0 +1,1538 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"tfe_variable": {
+				"project1-workspace-namespace-vault-token": {
+					0: {
+						"applied": {
+							"category":     "env",
+							"description":  "The admin VAULT_TOKEN for this namespace",
+							"hcl":          false,
+							"id":           "var-KGA7VP57hrJxU99B",
+							"key":          "VAULT_TOKEN",
+							"sensitive":    true,
+							"workspace_id": "ws-XN8Az9sMN4eSxdYd",
+						},
+						"destroy": false,
+						"diff": {
+							"category": {
+								"computed": false,
+								"new":      "env",
+								"old":      "env",
+							},
+							"description": {
+								"computed": false,
+								"new":      "The admin VAULT_TOKEN for this namespace",
+								"old":      "The admin VAULT_TOKEN for this namespace",
+							},
+							"hcl": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"id": {
+								"computed": false,
+								"new":      "var-KGA7VP57hrJxU99B",
+								"old":      "var-KGA7VP57hrJxU99B",
+							},
+							"key": {
+								"computed": false,
+								"new":      "VAULT_TOKEN",
+								"old":      "VAULT_TOKEN",
+							},
+							"sensitive": {
+								"computed": false,
+								"new":      "true",
+								"old":      "true",
+							},
+							"value": {
+								"computed": true,
+								"new":      "",
+								"old":      "s.kYyTfO55RWRI6fXFCL4hPVmM",
+							},
+							"workspace_id": {
+								"computed": false,
+								"new":      "ws-XN8Az9sMN4eSxdYd",
+								"old":      "ws-XN8Az9sMN4eSxdYd",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"vault_token": {
+				"project1-namespace-admin-token": {
+					0: {
+						"applied": {
+							"display_name":      "token",
+							"explicit_max_ttl":  null,
+							"no_default_policy": null,
+							"no_parent":         true,
+							"period":            null,
+							"pgp_key":           null,
+							"policies": [
+								"default",
+								"project1-namespace-admin-policy",
+							],
+							"renew_increment": 86400,
+							"renew_min_lease": 43200,
+							"renewable":       true,
+							"role_name":       null,
+							"ttl":             "96h",
+							"wrapping_ttl":    null,
+						},
+						"destroy": true,
+						"diff": {
+							"client_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "s.kYyTfO55RWRI6fXFCL4hPVmM",
+							},
+							"display_name": {
+								"computed": false,
+								"new":      "token",
+								"old":      "token",
+							},
+							"encrypted_client_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"explicit_max_ttl": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "qZyWJmiqvJC3il9kBgNT9Lex",
+							},
+							"lease_duration": {
+								"computed": true,
+								"new":      "",
+								"old":      "345599",
+							},
+							"lease_started": {
+								"computed": true,
+								"new":      "",
+								"old":      "2020-06-02T01:25:36Z",
+							},
+							"no_default_policy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"no_parent": {
+								"computed": false,
+								"new":      "true",
+								"old":      "true",
+							},
+							"num_uses": {
+								"computed": true,
+								"new":      "",
+								"old":      "0",
+							},
+							"period": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"pgp_key": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"policies.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "1",
+							},
+							"policies.0": {
+								"computed": false,
+								"new":      "default",
+								"old":      "project1-namespace-admin-policy",
+							},
+							"policies.1": {
+								"computed": false,
+								"new":      "project1-namespace-admin-policy",
+								"old":      "",
+							},
+							"renew_increment": {
+								"computed": false,
+								"new":      "86400",
+								"old":      "86400",
+							},
+							"renew_min_lease": {
+								"computed": false,
+								"new":      "43200",
+								"old":      "43200",
+							},
+							"renewable": {
+								"computed": false,
+								"new":      "true",
+								"old":      "true",
+							},
+							"role_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"ttl": {
+								"computed": false,
+								"new":      "96h",
+								"old":      "96h",
+							},
+							"wrapped_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"wrapping_accessor": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"wrapping_ttl": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": true,
+					},
+				},
+			},
+		},
+	},
+
+	"module.github_repo_module": {
+		"data": {},
+		"path": [
+			"github_repo_module",
+		],
+		"resources": {
+			"github_repository": {
+				"githubrepo": {
+					0: {
+						"applied": {
+							"allow_merge_commit":     true,
+							"allow_rebase_merge":     true,
+							"allow_squash_merge":     true,
+							"archived":               false,
+							"auto_init":              null,
+							"delete_branch_on_merge": false,
+							"description":            "Terraform for Vault code repository for Vault Namespace.",
+							"gitignore_template":     null,
+							"has_downloads":          null,
+							"has_issues":             null,
+							"has_projects":           null,
+							"has_wiki":               null,
+							"homepage_url":           null,
+							"is_template":            null,
+							"license_template":       null,
+							"name":                   "repositoryfor-namespaceforcba",
+							"private":                true,
+							"template": [
+								{
+									"owner":      "ausmartway",
+									"repository": "vault-namespace-template",
+								},
+							],
+							"topics": null,
+						},
+						"destroy": false,
+						"diff": {
+							"allow_merge_commit": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"allow_rebase_merge": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"allow_squash_merge": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"archived": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"auto_init": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"default_branch": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"delete_branch_on_merge": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "Terraform for Vault code repository for Vault Namespace.",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"full_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"git_clone_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"gitignore_template": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_downloads": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_issues": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_projects": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_wiki": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"homepage_url": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"html_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"http_clone_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"is_template": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"license_template": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "repositoryfor-namespaceforcba",
+								"old":      "",
+							},
+							"node_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"ssh_clone_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"svn_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"template.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"template.0.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"template.0.owner": {
+								"computed": false,
+								"new":      "ausmartway",
+								"old":      "",
+							},
+							"template.0.repository": {
+								"computed": false,
+								"new":      "vault-namespace-template",
+								"old":      "",
+							},
+							"topics": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+
+	"module.tfe_vault_workspace_module": {
+		"data": {},
+		"path": [
+			"tfe_vault_workspace_module",
+		],
+		"resources": {
+			"tfe_variable": {
+				"project-workspace-namespace-vault-token": {
+					0: {
+						"applied": {
+							"category":    "env",
+							"description": "The admin VAULT_TOKEN for this namespace",
+							"hcl":         false,
+							"key":         "VAULT_TOKEN",
+							"sensitive":   true,
+						},
+						"destroy": false,
+						"diff": {
+							"category": {
+								"computed": false,
+								"new":      "env",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "The admin VAULT_TOKEN for this namespace",
+								"old":      "",
+							},
+							"hcl": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key": {
+								"computed": false,
+								"new":      "VAULT_TOKEN",
+								"old":      "",
+							},
+							"sensitive": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"value": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"workspace_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"project1-workspace-namespace-vault-namespace": {
+					0: {
+						"applied": {
+							"category":    "env",
+							"description": "namespace this workspace is bind to",
+							"hcl":         false,
+							"key":         "VAULT_NAMESPACE",
+							"sensitive":   false,
+							"value":       "namespaceforcba",
+						},
+						"destroy": false,
+						"diff": {
+							"category": {
+								"computed": false,
+								"new":      "env",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "namespace this workspace is bind to",
+								"old":      "",
+							},
+							"hcl": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key": {
+								"computed": false,
+								"new":      "VAULT_NAMESPACE",
+								"old":      "",
+							},
+							"sensitive": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"value": {
+								"computed": false,
+								"new":      "namespaceforcba",
+								"old":      "",
+							},
+							"workspace_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"tfe_workspace": {
+				"project-workspace": {
+					0: {
+						"applied": {
+							"auto_apply":            false,
+							"file_triggers_enabled": true,
+							"name":                  "workspacefor-namespaceforcba",
+							"operations":            true,
+							"organization":          "customer-demo-yulei-consumer-org",
+							"queue_all_runs":        true,
+							"ssh_key_id":            null,
+							"trigger_prefixes":      null,
+							"vcs_repo": [
+								{
+									"branch":             null,
+									"ingress_submodules": false,
+									"oauth_token_id":     "ot-Xsx6ReJAouFcMzYN",
+								},
+							],
+							"working_directory": null,
+						},
+						"destroy": false,
+						"diff": {
+							"auto_apply": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"external_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"file_triggers_enabled": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "workspacefor-namespaceforcba",
+								"old":      "",
+							},
+							"operations": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"organization": {
+								"computed": false,
+								"new":      "customer-demo-yulei-consumer-org",
+								"old":      "",
+							},
+							"queue_all_runs": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"ssh_key_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"terraform_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"trigger_prefixes": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vcs_repo.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"vcs_repo.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"working_directory": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+
+	"module.vault_namespace_module": {
+		"data": {},
+		"path": [
+			"vault_namespace_module",
+		],
+		"resources": {
+			"vault_namespace": {
+				"project-namespace": {
+					0: {
+						"applied": {
+							"path": "namespaceforcba",
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"namespace_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"path": {
+								"computed": false,
+								"new":      "namespaceforcba",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"vault_policy": {
+				"project-namespace-admin-policy": {
+					0: {
+						"applied": {
+							"name":   "project-namespace-admin-policy",
+							"policy": "# Manage namespaces\npath \"namespaceforcba/sys/namespaces/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage policies\npath \"namespaceforcba/sys/policies/acl/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# List policies\npath \"namespaceforcba/sys/policies/acl\" {\n   capabilities = [\"list\"]\n}\n\n# Enable and manage secrets engines\npath \"namespaceforcba/sys/mounts/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# List available secrets engines\npath \"namespaceforcba/sys/mounts\" {\n  capabilities = [ \"read\" ]\n}\n\n# Create and manage entities and groups\npath \"namespaceforcba/identity/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# Manage tokens\npath \"namespaceforcba/auth/token/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage secrets at '*'\npath \"namespaceforcba/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "project-namespace-admin-policy",
+								"old":      "",
+							},
+							"policy": {
+								"computed": false,
+								"new":      "# Manage namespaces\npath \"namespaceforcba/sys/namespaces/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage policies\npath \"namespaceforcba/sys/policies/acl/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# List policies\npath \"namespaceforcba/sys/policies/acl\" {\n   capabilities = [\"list\"]\n}\n\n# Enable and manage secrets engines\npath \"namespaceforcba/sys/mounts/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# List available secrets engines\npath \"namespaceforcba/sys/mounts\" {\n  capabilities = [ \"read\" ]\n}\n\n# Create and manage entities and groups\npath \"namespaceforcba/identity/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# Manage tokens\npath \"namespaceforcba/auth/token/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage secrets at '*'\npath \"namespaceforcba/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"vault_token": {
+				"project-namespace-admin-token": {
+					0: {
+						"applied": {
+							"display_name":      "token",
+							"explicit_max_ttl":  null,
+							"no_default_policy": null,
+							"no_parent":         true,
+							"period":            null,
+							"pgp_key":           null,
+							"policies": [
+								"default",
+								"project-namespace-admin-policy",
+							],
+							"renew_increment": 86400,
+							"renew_min_lease": 43200,
+							"renewable":       true,
+							"role_name":       null,
+							"ttl":             "96h",
+							"wrapping_ttl":    null,
+						},
+						"destroy": false,
+						"diff": {
+							"client_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"display_name": {
+								"computed": false,
+								"new":      "token",
+								"old":      "",
+							},
+							"encrypted_client_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"explicit_max_ttl": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"lease_duration": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"lease_started": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"no_default_policy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"no_parent": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"num_uses": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"period": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"pgp_key": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"policies.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"policies.0": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"policies.1": {
+								"computed": false,
+								"new":      "project-namespace-admin-policy",
+								"old":      "",
+							},
+							"renew_increment": {
+								"computed": false,
+								"new":      "86400",
+								"old":      "",
+							},
+							"renew_min_lease": {
+								"computed": false,
+								"new":      "43200",
+								"old":      "",
+							},
+							"renewable": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"role_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"ttl": {
+								"computed": false,
+								"new":      "96h",
+								"old":      "",
+							},
+							"wrapped_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"wrapping_accessor": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"wrapping_ttl": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module.module.github_repo_module": {
+		"data": {},
+		"path": [
+			"vault_namespace_selfservice_module",
+			"github_repo_module",
+		],
+		"resources": {
+			"github_repository": {
+				"githubrepo": {
+					0: {
+						"applied": {
+							"allow_merge_commit":     true,
+							"allow_rebase_merge":     true,
+							"allow_squash_merge":     true,
+							"archived":               false,
+							"auto_init":              null,
+							"delete_branch_on_merge": false,
+							"description":            "Terraform for Vault code repository for Vault Namespace.",
+							"gitignore_template":     null,
+							"has_downloads":          null,
+							"has_issues":             null,
+							"has_projects":           null,
+							"has_wiki":               null,
+							"homepage_url":           null,
+							"is_template":            null,
+							"license_template":       null,
+							"name":                   "repositoryfor-retailbanking",
+							"private":                true,
+							"template": [
+								{
+									"owner":      "ausmartway",
+									"repository": "vault-namespace-template",
+								},
+							],
+							"topics": null,
+						},
+						"destroy": false,
+						"diff": {
+							"allow_merge_commit": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"allow_rebase_merge": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"allow_squash_merge": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"archived": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"auto_init": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"default_branch": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"delete_branch_on_merge": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "Terraform for Vault code repository for Vault Namespace.",
+								"old":      "",
+							},
+							"etag": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"full_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"git_clone_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"gitignore_template": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_downloads": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_issues": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_projects": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"has_wiki": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"homepage_url": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"html_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"http_clone_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"is_template": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"license_template": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "repositoryfor-retailbanking",
+								"old":      "",
+							},
+							"node_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"ssh_clone_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"svn_url": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"template.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"template.0.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"template.0.owner": {
+								"computed": false,
+								"new":      "ausmartway",
+								"old":      "",
+							},
+							"template.0.repository": {
+								"computed": false,
+								"new":      "vault-namespace-template",
+								"old":      "",
+							},
+							"topics": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module.module.tfe_vault_workspace_module": {
+		"data": {},
+		"path": [
+			"vault_namespace_selfservice_module",
+			"tfe_vault_workspace_module",
+		],
+		"resources": {
+			"tfe_variable": {
+				"project-workspace-namespace-vault-token": {
+					0: {
+						"applied": {
+							"category":    "env",
+							"description": "The admin VAULT_TOKEN for this namespace",
+							"hcl":         false,
+							"key":         "VAULT_TOKEN",
+							"sensitive":   true,
+						},
+						"destroy": false,
+						"diff": {
+							"category": {
+								"computed": false,
+								"new":      "env",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "The admin VAULT_TOKEN for this namespace",
+								"old":      "",
+							},
+							"hcl": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key": {
+								"computed": false,
+								"new":      "VAULT_TOKEN",
+								"old":      "",
+							},
+							"sensitive": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"value": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"workspace_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+				"project1-workspace-namespace-vault-namespace": {
+					0: {
+						"applied": {
+							"category":    "env",
+							"description": "namespace this workspace is bind to",
+							"hcl":         false,
+							"key":         "VAULT_NAMESPACE",
+							"sensitive":   false,
+							"value":       "retailbanking",
+						},
+						"destroy": false,
+						"diff": {
+							"category": {
+								"computed": false,
+								"new":      "env",
+								"old":      "",
+							},
+							"description": {
+								"computed": false,
+								"new":      "namespace this workspace is bind to",
+								"old":      "",
+							},
+							"hcl": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"key": {
+								"computed": false,
+								"new":      "VAULT_NAMESPACE",
+								"old":      "",
+							},
+							"sensitive": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"value": {
+								"computed": false,
+								"new":      "retailbanking",
+								"old":      "",
+							},
+							"workspace_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"tfe_workspace": {
+				"project-workspace": {
+					0: {
+						"applied": {
+							"auto_apply":            false,
+							"file_triggers_enabled": true,
+							"name":                  "workspacefor-retailbanking",
+							"operations":            true,
+							"organization":          "customer-demo-yulei-consumer-org",
+							"queue_all_runs":        true,
+							"ssh_key_id":            null,
+							"trigger_prefixes":      null,
+							"vcs_repo": [
+								{
+									"branch":             null,
+									"ingress_submodules": false,
+									"oauth_token_id":     "ot-Xsx6ReJAouFcMzYN",
+								},
+							],
+							"working_directory": null,
+						},
+						"destroy": false,
+						"diff": {
+							"auto_apply": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"external_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"file_triggers_enabled": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "workspacefor-retailbanking",
+								"old":      "",
+							},
+							"operations": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"organization": {
+								"computed": false,
+								"new":      "customer-demo-yulei-consumer-org",
+								"old":      "",
+							},
+							"queue_all_runs": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"ssh_key_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"terraform_version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"trigger_prefixes": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"vcs_repo.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"vcs_repo.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"working_directory": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module.module.vault_namespace_module": {
+		"data": {},
+		"path": [
+			"vault_namespace_selfservice_module",
+			"vault_namespace_module",
+		],
+		"resources": {
+			"vault_namespace": {
+				"project-namespace": {
+					0: {
+						"applied": {
+							"path": "retailbanking",
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"namespace_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"path": {
+								"computed": false,
+								"new":      "retailbanking",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"vault_policy": {
+				"project-namespace-admin-policy": {
+					0: {
+						"applied": {
+							"name":   "project-namespace-admin-policy",
+							"policy": "# Manage namespaces\npath \"retailbanking/sys/namespaces/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage policies\npath \"retailbanking/sys/policies/acl/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# List policies\npath \"retailbanking/sys/policies/acl\" {\n   capabilities = [\"list\"]\n}\n\n# Enable and manage secrets engines\npath \"retailbanking/sys/mounts/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# List available secrets engines\npath \"retailbanking/sys/mounts\" {\n  capabilities = [ \"read\" ]\n}\n\n# Create and manage entities and groups\npath \"retailbanking/identity/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# Manage tokens\npath \"retailbanking/auth/token/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage secrets at '*'\npath \"retailbanking/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+						},
+						"destroy": false,
+						"diff": {
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "project-namespace-admin-policy",
+								"old":      "",
+							},
+							"policy": {
+								"computed": false,
+								"new":      "# Manage namespaces\npath \"retailbanking/sys/namespaces/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage policies\npath \"retailbanking/sys/policies/acl/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# List policies\npath \"retailbanking/sys/policies/acl\" {\n   capabilities = [\"list\"]\n}\n\n# Enable and manage secrets engines\npath \"retailbanking/sys/mounts/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# List available secrets engines\npath \"retailbanking/sys/mounts\" {\n  capabilities = [ \"read\" ]\n}\n\n# Create and manage entities and groups\npath \"retailbanking/identity/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n\n# Manage tokens\npath \"retailbanking/auth/token/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\", \"sudo\"]\n}\n\n# Manage secrets at '*'\npath \"retailbanking/*\" {\n   capabilities = [\"create\", \"read\", \"update\", \"delete\", \"list\"]\n}\n",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+			"vault_token": {
+				"project-namespace-admin-token": {
+					0: {
+						"applied": {
+							"display_name":      "token",
+							"explicit_max_ttl":  null,
+							"no_default_policy": null,
+							"no_parent":         true,
+							"period":            null,
+							"pgp_key":           null,
+							"policies": [
+								"default",
+								"project-namespace-admin-policy",
+							],
+							"renew_increment": 86400,
+							"renew_min_lease": 43200,
+							"renewable":       true,
+							"role_name":       null,
+							"ttl":             "96h",
+							"wrapping_ttl":    null,
+						},
+						"destroy": false,
+						"diff": {
+							"client_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"display_name": {
+								"computed": false,
+								"new":      "token",
+								"old":      "",
+							},
+							"encrypted_client_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"explicit_max_ttl": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"lease_duration": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"lease_started": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"no_default_policy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"no_parent": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"num_uses": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"period": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"pgp_key": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"policies.#": {
+								"computed": false,
+								"new":      "2",
+								"old":      "",
+							},
+							"policies.0": {
+								"computed": false,
+								"new":      "default",
+								"old":      "",
+							},
+							"policies.1": {
+								"computed": false,
+								"new":      "project-namespace-admin-policy",
+								"old":      "",
+							},
+							"renew_increment": {
+								"computed": false,
+								"new":      "86400",
+								"old":      "",
+							},
+							"renew_min_lease": {
+								"computed": false,
+								"new":      "43200",
+								"old":      "",
+							},
+							"renewable": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"role_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"ttl": {
+								"computed": false,
+								"new":      "96h",
+								"old":      "",
+							},
+							"wrapped_token": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"wrapping_accessor": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"wrapping_ttl": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+	[
+		"github_repo_module",
+	],
+	[
+		"tfe_vault_workspace_module",
+	],
+	[
+		"vault_namespace_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+		"github_repo_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+		"tfe_vault_workspace_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+		"vault_namespace_module",
+	],
+]
+
+terraform_version = "0.12.25"
+
+variables = {
+	"oauth-token-id":   "ot-Xsx6ReJAouFcMzYN",
+	"tfe-organization": "customer-demo-yulei-consumer-org",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

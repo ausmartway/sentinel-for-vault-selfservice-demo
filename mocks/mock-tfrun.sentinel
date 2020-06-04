@@ -1,0 +1,53 @@
+created_at = "2020-06-02T01:31:33.452Z"
+message = "wrapping module"
+speculative = false
+is_destroy = false
+
+variables = {
+	"GITHUB_ORGANIZATION": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"GITHUB_TOKEN": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"OAUTH_GITHUB_TOKEN": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"TFE_TOKEN": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"VAULT_ADDR": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"VAULT_TOKEN": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"tfe-organization": {
+		"category":  "terraform",
+		"sensitive": false,
+	},
+}
+
+organization = {
+	"name": "customer-demo-yulei-management-org",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2020-05-27T00:38:06.678Z",
+	"description": null,
+	"name":        "vault-super-admin",
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "ausmartway/vault-super-admin",
+		"identifier":         "ausmartway/vault-super-admin",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}

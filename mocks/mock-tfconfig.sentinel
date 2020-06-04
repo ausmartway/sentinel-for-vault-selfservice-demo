@@ -1,0 +1,925 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"modules": {
+			"github_repo_module": {
+				"config": {},
+				"references": {
+					"reponame": [
+						"module.vault_namespace_module.vault-namespace",
+					],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/github-repo-module/specialcustomer",
+				"version": "0.0.3",
+			},
+			"tfe_vault_workspace_module": {
+				"config": {
+					"oauth-token-id":   "ot-Xsx6ReJAouFcMzYN",
+					"tfe-organization": "customer-demo-yulei-consumer-org",
+				},
+				"references": {
+					"github-repo-fullname": [
+						"module.github_repo_module.repoidentifier",
+					],
+					"oauth-token-id":   [],
+					"tfe-organization": [],
+					"tfe-workspace-name": [
+						"module.vault_namespace_module.vault-namespace",
+					],
+					"vault-namespace": [
+						"module.vault_namespace_module.vault-namespace",
+					],
+					"vault-token": [
+						"module.vault_namespace_module.vault-token",
+					],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/tfe-vault-workspace-module/specialcustomer",
+				"version": "0.0.4",
+			},
+			"vault_namespace_module": {
+				"config": {
+					"namespace": "namespaceforcba",
+				},
+				"references": {
+					"namespace": [],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/vault-namespace-module/specialcustomer",
+				"version": "0.0.2",
+			},
+			"vault_namespace_selfservice_module": {
+				"config": {
+					"namespace-name": "retailbanking",
+				},
+				"references": {
+					"namespace-name": [],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/vault-namespace-selfservice-module/specialcustomer",
+				"version": "0.0.2",
+			},
+		},
+		"outputs": {
+			"github_repo_full_name": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"github_repository.cba-vault-namespace-nsproject1",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"github_repo_url": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"github_repository.cba-vault-namespace-nsproject1",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"tfe_worksapce_id": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"tfe_workspace.project1-workspace",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"vault_namespace_path": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"vault_namespace.project1-namespace",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"vault_token": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"vault_token.project1-namespace-admin-token",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {
+			"github": {
+				"alias": {
+					"": {
+						"config":     {},
+						"references": {},
+						"version":    "",
+					},
+				},
+				"config":     {},
+				"references": {},
+				"version":    "",
+			},
+			"tfe": {
+				"alias": {
+					"": {
+						"config":     {},
+						"references": {},
+						"version":    "",
+					},
+				},
+				"config":     {},
+				"references": {},
+				"version":    "",
+			},
+			"vault": {
+				"alias": {
+					"": {
+						"config":     {},
+						"references": {},
+						"version":    "",
+					},
+				},
+				"config":     {},
+				"references": {},
+				"version":    "",
+			},
+		},
+		"resources": {
+			"github_repository": {
+				"cba-vault-namespace-nsproject1": {
+					"config": {
+						"description": "Terraform for Vault code repository for Vault Namespace project1.",
+						"name":        "cba-vault-namespace-nsproject1",
+						"private":     true,
+						"template": [
+							{
+								"owner":      "ausmartway",
+								"repository": "vault-namespace-template",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"description": [],
+						"name":        [],
+						"private":     [],
+						"template": [
+							{
+								"owner":      [],
+								"repository": [],
+							},
+						],
+					},
+				},
+			},
+			"tfe_variable": {
+				"project1-workspace-namespace-vault-namespace": {
+					"config": {
+						"category":    "env",
+						"description": "namespace this workspace is bind to",
+						"key":         "VAULT_NAMESPACE",
+					},
+					"provisioners": null,
+					"references": {
+						"category":    [],
+						"description": [],
+						"key":         [],
+						"value": [
+							"vault_namespace.project1-namespace",
+						],
+						"workspace_id": [
+							"tfe_workspace.project1-workspace",
+						],
+					},
+				},
+				"project1-workspace-namespace-vault-token": {
+					"config": {
+						"category":    "env",
+						"description": "The admin VAULT_TOKEN for this namespace",
+						"key":         "VAULT_TOKEN",
+						"sensitive":   true,
+					},
+					"provisioners": null,
+					"references": {
+						"category":    [],
+						"description": [],
+						"key":         [],
+						"sensitive":   [],
+						"value": [
+							"vault_token.project1-namespace-admin-token",
+						],
+						"workspace_id": [
+							"tfe_workspace.project1-workspace",
+						],
+					},
+				},
+			},
+			"tfe_workspace": {
+				"project1-workspace": {
+					"config": {
+						"name": "project1-workspace",
+						"vcs_repo": [
+							{},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"name": [],
+						"organization": [
+							"var.tfe-organization",
+						],
+						"vcs_repo": [
+							{
+								"identifier": [
+									"github_repository.cba-vault-namespace-nsproject1",
+								],
+								"oauth_token_id": [
+									"var.oauth-token-id",
+								],
+							},
+						],
+					},
+				},
+			},
+			"vault_namespace": {
+				"project1-namespace": {
+					"config": {
+						"path": "project1",
+					},
+					"provisioners": null,
+					"references": {
+						"path": [],
+					},
+				},
+			},
+			"vault_policy": {
+				"project1-namespace-admin-policy": {
+					"config": {
+						"name": "project1-namespace-admin-policy",
+					},
+					"provisioners": null,
+					"references": {
+						"name": [],
+						"policy": [
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+							"vault_namespace.project1-namespace",
+						],
+					},
+				},
+			},
+			"vault_token": {
+				"project1-namespace-admin-token": {
+					"config": {
+						"no_parent":       true,
+						"renew_increment": 86400,
+						"renew_min_lease": 43200,
+						"renewable":       true,
+						"ttl":             "96h",
+					},
+					"provisioners": null,
+					"references": {
+						"no_parent": [],
+						"policies": [
+							"vault_policy.project1-namespace-admin-policy",
+						],
+						"renew_increment": [],
+						"renew_min_lease": [],
+						"renewable":       [],
+						"ttl":             [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"oauth-token-id": {
+				"default":     "ot-Xsx6ReJAouFcMzYN",
+				"description": "oAuth token id from TFE organization",
+			},
+			"tfe-organization": {
+				"default":     "customer-demo-yulei-consumer-org",
+				"description": "Name of the Terraform Enterprise organization",
+			},
+		},
+	},
+
+	"module.github_repo_module": {
+		"data":    {},
+		"modules": {},
+		"outputs": {
+			"repoidentifier": {
+				"depends_on":  [],
+				"description": "Identifier that can be used in vcs block of TFE provider.",
+				"references": [
+					"github_repository.githubrepo",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {
+			"github_repository": {
+				"githubrepo": {
+					"config": {
+						"description": "Terraform for Vault code repository for Vault Namespace.",
+						"private":     true,
+						"template": [
+							{
+								"owner":      "ausmartway",
+								"repository": "vault-namespace-template",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"description": [],
+						"name": [
+							"var.reponame",
+						],
+						"private": [],
+						"template": [
+							{
+								"owner":      [],
+								"repository": [],
+							},
+						],
+					},
+				},
+			},
+		},
+		"variables": {
+			"reponame": {
+				"default":     null,
+				"description": "the name of the repo you want to create",
+			},
+		},
+	},
+
+	"module.tfe_vault_workspace_module": {
+		"data":      {},
+		"modules":   {},
+		"outputs":   {},
+		"providers": {},
+		"resources": {
+			"tfe_variable": {
+				"project-workspace-namespace-vault-token": {
+					"config": {
+						"category":    "env",
+						"description": "The admin VAULT_TOKEN for this namespace",
+						"key":         "VAULT_TOKEN",
+						"sensitive":   true,
+					},
+					"provisioners": null,
+					"references": {
+						"category":    [],
+						"description": [],
+						"key":         [],
+						"sensitive":   [],
+						"value": [
+							"var.vault-token",
+						],
+						"workspace_id": [
+							"tfe_workspace.project-workspace",
+						],
+					},
+				},
+				"project1-workspace-namespace-vault-namespace": {
+					"config": {
+						"category":    "env",
+						"description": "namespace this workspace is bind to",
+						"key":         "VAULT_NAMESPACE",
+					},
+					"provisioners": null,
+					"references": {
+						"category":    [],
+						"description": [],
+						"key":         [],
+						"value": [
+							"var.vault-namespace",
+						],
+						"workspace_id": [
+							"tfe_workspace.project-workspace",
+						],
+					},
+				},
+			},
+			"tfe_workspace": {
+				"project-workspace": {
+					"config": {
+						"vcs_repo": [
+							{},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"name": [
+							"var.tfe-workspace-name",
+						],
+						"organization": [
+							"var.tfe-organization",
+						],
+						"vcs_repo": [
+							{
+								"identifier": [
+									"var.github-repo-fullname",
+								],
+								"oauth_token_id": [
+									"var.oauth-token-id",
+								],
+							},
+						],
+					},
+				},
+			},
+		},
+		"variables": {
+			"github-repo-fullname": {
+				"default":     null,
+				"description": "fullname of github repo",
+			},
+			"oauth-token-id": {
+				"default":     null,
+				"description": "oauth-token-id assosiated with TFE orgnization",
+			},
+			"tfe-organization": {
+				"default":     null,
+				"description": "name of the TFE orgnisation",
+			},
+			"tfe-workspace-name": {
+				"default":     null,
+				"description": "name of the TFE workspace",
+			},
+			"vault-namespace": {
+				"default":     null,
+				"description": "name of the Vault Namesapce",
+			},
+			"vault-token": {
+				"default":     null,
+				"description": "Vault Token",
+			},
+		},
+	},
+
+	"module.vault_namespace_module": {
+		"data":    {},
+		"modules": {},
+		"outputs": {
+			"vault-namespace": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"vault_namespace.project-namespace",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"vault-token": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"vault_token.project-namespace-admin-token",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {
+			"vault_namespace": {
+				"project-namespace": {
+					"config":       {},
+					"provisioners": null,
+					"references": {
+						"path": [
+							"var.namespace",
+						],
+					},
+				},
+			},
+			"vault_policy": {
+				"project-namespace-admin-policy": {
+					"config": {
+						"name": "project-namespace-admin-policy",
+					},
+					"provisioners": null,
+					"references": {
+						"name": [],
+						"policy": [
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+						],
+					},
+				},
+			},
+			"vault_token": {
+				"project-namespace-admin-token": {
+					"config": {
+						"no_parent":       true,
+						"renew_increment": 86400,
+						"renew_min_lease": 43200,
+						"renewable":       true,
+						"ttl":             "96h",
+					},
+					"provisioners": null,
+					"references": {
+						"no_parent": [],
+						"policies": [
+							"vault_policy.project-namespace-admin-policy",
+						],
+						"renew_increment": [],
+						"renew_min_lease": [],
+						"renewable":       [],
+						"ttl":             [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"namespace": {
+				"default":     null,
+				"description": "The name of the Vault namespace you want to create",
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module": {
+		"data": {},
+		"modules": {
+			"github_repo_module": {
+				"config": {},
+				"references": {
+					"reponame": [
+						"var.namespace-name",
+					],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/github-repo-module/specialcustomer",
+				"version": "0.0.3",
+			},
+			"tfe_vault_workspace_module": {
+				"config": {
+					"oauth-token-id":   "ot-Xsx6ReJAouFcMzYN",
+					"tfe-organization": "customer-demo-yulei-consumer-org",
+				},
+				"references": {
+					"github-repo-fullname": [
+						"module.github_repo_module.repoidentifier",
+					],
+					"oauth-token-id":   [],
+					"tfe-organization": [],
+					"tfe-workspace-name": [
+						"module.vault_namespace_module.vault-namespace",
+					],
+					"vault-namespace": [
+						"module.vault_namespace_module.vault-namespace",
+					],
+					"vault-token": [
+						"module.vault_namespace_module.vault-token",
+					],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/tfe-vault-workspace-module/specialcustomer",
+				"version": "0.0.4",
+			},
+			"vault_namespace_module": {
+				"config": {},
+				"references": {
+					"namespace": [
+						"var.namespace-name",
+					],
+				},
+				"source":  "app.terraform.io/customer-demo-yulei-management-org/vault-namespace-module/specialcustomer",
+				"version": "0.0.2",
+			},
+		},
+		"outputs": {
+			"github-repo-url": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"module.github_repo_module.repoidentifier",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {},
+		"variables": {
+			"namespace-name": {
+				"default":     null,
+				"description": "name of the Vault namespace you want to create",
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module.module.github_repo_module": {
+		"data":    {},
+		"modules": {},
+		"outputs": {
+			"repoidentifier": {
+				"depends_on":  [],
+				"description": "Identifier that can be used in vcs block of TFE provider.",
+				"references": [
+					"github_repository.githubrepo",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {
+			"github_repository": {
+				"githubrepo": {
+					"config": {
+						"description": "Terraform for Vault code repository for Vault Namespace.",
+						"private":     true,
+						"template": [
+							{
+								"owner":      "ausmartway",
+								"repository": "vault-namespace-template",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"description": [],
+						"name": [
+							"var.reponame",
+						],
+						"private": [],
+						"template": [
+							{
+								"owner":      [],
+								"repository": [],
+							},
+						],
+					},
+				},
+			},
+		},
+		"variables": {
+			"reponame": {
+				"default":     null,
+				"description": "the name of the repo you want to create",
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module.module.tfe_vault_workspace_module": {
+		"data":      {},
+		"modules":   {},
+		"outputs":   {},
+		"providers": {},
+		"resources": {
+			"tfe_variable": {
+				"project-workspace-namespace-vault-token": {
+					"config": {
+						"category":    "env",
+						"description": "The admin VAULT_TOKEN for this namespace",
+						"key":         "VAULT_TOKEN",
+						"sensitive":   true,
+					},
+					"provisioners": null,
+					"references": {
+						"category":    [],
+						"description": [],
+						"key":         [],
+						"sensitive":   [],
+						"value": [
+							"var.vault-token",
+						],
+						"workspace_id": [
+							"tfe_workspace.project-workspace",
+						],
+					},
+				},
+				"project1-workspace-namespace-vault-namespace": {
+					"config": {
+						"category":    "env",
+						"description": "namespace this workspace is bind to",
+						"key":         "VAULT_NAMESPACE",
+					},
+					"provisioners": null,
+					"references": {
+						"category":    [],
+						"description": [],
+						"key":         [],
+						"value": [
+							"var.vault-namespace",
+						],
+						"workspace_id": [
+							"tfe_workspace.project-workspace",
+						],
+					},
+				},
+			},
+			"tfe_workspace": {
+				"project-workspace": {
+					"config": {
+						"vcs_repo": [
+							{},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"name": [
+							"var.tfe-workspace-name",
+						],
+						"organization": [
+							"var.tfe-organization",
+						],
+						"vcs_repo": [
+							{
+								"identifier": [
+									"var.github-repo-fullname",
+								],
+								"oauth_token_id": [
+									"var.oauth-token-id",
+								],
+							},
+						],
+					},
+				},
+			},
+		},
+		"variables": {
+			"github-repo-fullname": {
+				"default":     null,
+				"description": "fullname of github repo",
+			},
+			"oauth-token-id": {
+				"default":     null,
+				"description": "oauth-token-id assosiated with TFE orgnization",
+			},
+			"tfe-organization": {
+				"default":     null,
+				"description": "name of the TFE orgnisation",
+			},
+			"tfe-workspace-name": {
+				"default":     null,
+				"description": "name of the TFE workspace",
+			},
+			"vault-namespace": {
+				"default":     null,
+				"description": "name of the Vault Namesapce",
+			},
+			"vault-token": {
+				"default":     null,
+				"description": "Vault Token",
+			},
+		},
+	},
+
+	"module.vault_namespace_selfservice_module.module.vault_namespace_module": {
+		"data":    {},
+		"modules": {},
+		"outputs": {
+			"vault-namespace": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"vault_namespace.project-namespace",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+			"vault-token": {
+				"depends_on":  [],
+				"description": "",
+				"references": [
+					"vault_token.project-namespace-admin-token",
+				],
+				"sensitive": false,
+				"value":     undefined,
+			},
+		},
+		"providers": {},
+		"resources": {
+			"vault_namespace": {
+				"project-namespace": {
+					"config":       {},
+					"provisioners": null,
+					"references": {
+						"path": [
+							"var.namespace",
+						],
+					},
+				},
+			},
+			"vault_policy": {
+				"project-namespace-admin-policy": {
+					"config": {
+						"name": "project-namespace-admin-policy",
+					},
+					"provisioners": null,
+					"references": {
+						"name": [],
+						"policy": [
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+							"vault_namespace.project-namespace",
+						],
+					},
+				},
+			},
+			"vault_token": {
+				"project-namespace-admin-token": {
+					"config": {
+						"no_parent":       true,
+						"renew_increment": 86400,
+						"renew_min_lease": 43200,
+						"renewable":       true,
+						"ttl":             "96h",
+					},
+					"provisioners": null,
+					"references": {
+						"no_parent": [],
+						"policies": [
+							"vault_policy.project-namespace-admin-policy",
+						],
+						"renew_increment": [],
+						"renew_min_lease": [],
+						"renewable":       [],
+						"ttl":             [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"namespace": {
+				"default":     null,
+				"description": "The name of the Vault namespace you want to create",
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+	[
+		"github_repo_module",
+	],
+	[
+		"tfe_vault_workspace_module",
+	],
+	[
+		"vault_namespace_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+		"github_repo_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+		"tfe_vault_workspace_module",
+	],
+	[
+		"vault_namespace_selfservice_module",
+		"vault_namespace_module",
+	],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs
