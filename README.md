@@ -1,1 +1,1 @@
-# sentinel-for-cba-vault-demo
+# sentinel-for-vault-selfservice-demo
