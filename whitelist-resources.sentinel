@@ -17,6 +17,7 @@ whitelist = ["vault_namespace",
             "vault_transit_secret_backend_key",
             "vault_pki_secret_backend_intermediate_set_signed",
             "github_repository",
+            "vault_github_auth_backend",
             "tfe_workspace","tfe_variable"]
 
 # Get all Resources
