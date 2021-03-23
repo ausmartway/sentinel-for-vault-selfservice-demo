@@ -18,7 +18,13 @@ whitelist = ["vault_namespace",
             "vault_pki_secret_backend_intermediate_set_signed",
             "github_repository",
             "vault_github_auth_backend",
-            "tfe_workspace","tfe_variable"]
+            "tfe_workspace","tfe_variable",
+            "vault_auth_backend",
+            "vault_approle_auth_backend_role",
+            "vault_approle_auth_backend_role_secret_id",
+            "vault_approle_auth_backend_login",
+            "vault_generic_secret",
+            ]
 
 # Get all Resources
 allResources = config.find_all_resources()

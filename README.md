@@ -1,4 +1,4 @@
-# sentinel-for-cba-vault-demo
+# sentinel-for-TFE-managing-vault-demo
 
 This repository contains some basic Sentinel policies to govern Vault configuration via Terraform Enterprise/Terraform Cloud.
 
