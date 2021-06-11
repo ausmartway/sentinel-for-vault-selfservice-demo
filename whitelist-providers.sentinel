@@ -5,7 +5,7 @@
 import "tfconfig-functions" as config
 
 # List of whitelisted providers
-whitelist = ["vault", "github", "tfe"]
+whitelist = ["vault", "github", "tfe","azuread"]
 
 # Get all providers
 allProviders = config.find_all_providers()
